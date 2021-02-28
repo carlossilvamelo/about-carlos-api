@@ -1,5 +1,12 @@
 export default function handler(req, res) {
     // sendMsg().catch(err => console.log(err));
     const { method, params } = req;
-    res.status(200).json({ method, params })
+    console.log(req.body.challenge)
+    if(method === 'POST'){
+        res.setHeader('content-type', 'text/plain');
+        res.status(200);
+        res.send(req.body.challenge);
+    }
+    
 }
+
