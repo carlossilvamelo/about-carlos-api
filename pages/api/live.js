@@ -1,4 +1,4 @@
-import sendMsg from '../services/slackSender';
+// import sendMsg from '../services/slackSender';
 
 export default function handler(req, res) {
   // sendMsg().catch(err => console.log(err));
