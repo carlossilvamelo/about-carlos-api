@@ -1,13 +1,13 @@
 
 
 const axios = require('axios');
-const SLACK_TOKEN = 'xoxb-1808428288180-1795488406390-Qyr80v0IduIggcsuCne3bTPL';
-
+const SLACK_TOKEN = process.env.TOKEN_SLACK;
+const URL_SLACK = process.env.URL_SLACK;
 export default async function sendMsg() {
-  const url = 'https://slack.com/api/chat.postMessage';
-  const res = await axios.post(url, {
+  
+  const res = await axios.post(URL_SLACK, {
     channel: '#geral',
-    text: 'Hello Geral, World!'
+    text: 'opa!'
   }, { headers: { authorization: `Bearer ${SLACK_TOKEN}` } });
 
   console.log('Done', res.data);
