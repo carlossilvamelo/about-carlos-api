@@ -1,10 +1,12 @@
+import sendMsg from '../../services/slackSender';
+
 export default function handler(req, res) {
-    // sendMsg().catch(err => console.log(err));
+    
     const { method, params } = req;
     console.log(req.body.challenge)
     if(method === 'POST'){
-        res.setHeader('content-type', 'text/plain');
-        res.status(200).send(req.body.challenge)
+        sendMsg(JSON.stringify(req.body)).catch(err => console.log(err));
+        res.status(200).json(req.body)
     }
     
 }
